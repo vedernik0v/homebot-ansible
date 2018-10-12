@@ -1,0 +1,26 @@
+- name: Deploy | as user
+  block:
+  - name: Get source
+    git:
+      repo: 'https://github.com/snikitin-me/homebot.git'
+      dest: "{{ www_dir }}/homebot"
+    tags:
+      - git
+  # - name: Change file mode bits
+  #   file:
+  #     path: "{{ www_dir }}"
+  #     owner: "{{ user }}"
+  #     group: "{{ user }}"
+  #     mode: 0755
+  #     recurse: yes
+  #   become: yes
+  #   become_user: root
+  #   tags:
+  #     - setup
+  #     - as_root
+  - name: Install packages based on package.json.
+    npm:
+      path: "{{ www_dir }}/homebot"
+    tags:
+      - npm
+  tags: deploy
