@@ -7,7 +7,7 @@
 ### Установка ПО и настройка ОС (setup)
 
 ```sh
-ansible-playbook -i test-hosts.yml test-playbook.yml -t setup
+ansible-playbook -i test-hosts.yml test-playbook.yml -t setup -K
 ```
 
 ### Развертывание (deploy) 
