@@ -8,7 +8,7 @@
     tags:
       - apt
   - name: Generating a PM2 startup script
-    shell: env PATH=$PATH:/usr/bin /usr/local/lib/npm/lib/node_modules/pm2/bin/pm2 startup systemd -u {{ ansible_user_id }} --hp /home/{{ ansible_user_id }}
+    shell: env PATH=$PATH:/usr/bin /usr/local/lib/npm/bin/pm2 startup systemd -u {{ ansible_user_id }} --hp /home/{{ ansible_user_id }}
     tags:
       - pm2
   - name: Create a directory if it doesn't exist
